@@ -49,4 +49,18 @@ class User extends Authenticatable
             'two_factor_confirmed_at' => 'datetime',
         ];
     }
+
+
+    public function playerStat()
+    {
+        return $this->hasOne(PlayerStat::class, 'user_id');
+    }
+    public function gamesAsWhite()
+    {
+        return $this->hasMany(Game::class, 'white_player_id');
+    }
+    public function gamesAsBlack()
+    {
+        return $this->hasMany(Game::class, 'black_player_id');
+    }
 }
