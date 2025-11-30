@@ -9,7 +9,7 @@ import {
 import { urlIsActive } from '@/lib/utils';
 import { type NavItem } from '@/types';
 import { Link, usePage } from '@inertiajs/vue3';
-
+import { Icon } from "@iconify/vue";
 defineProps<{
     items: NavItem[];
 }>();
@@ -28,7 +28,8 @@ const page = usePage();
                     :tooltip="item.title"
                 >
                     <Link :href="item.href">
-                        <component :is="item.icon" />
+                        <component :is="item.icon" v-if="item.icon" />
+                        <Icon v-if="item.iconify_icon" :icon="item.iconify_icon" class="mr-2 h-4 w-4" />
                         <span>{{ item.title }}</span>
                     </Link>
                 </SidebarMenuButton>

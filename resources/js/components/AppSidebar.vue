@@ -16,13 +16,17 @@ import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/vue3';
 import { BookOpen, Folder, LayoutGrid } from 'lucide-vue-next';
 import AppLogo from './AppLogo.vue';
-
 const mainNavItems: NavItem[] = [
     {
         title: 'Dashboard',
         href: dashboard(),
         icon: LayoutGrid,
     },
+    {
+        title: 'chess',
+        href: '/chess/index',
+        iconify_icon: 'fa-solid:chess'
+    }
 ];
 
 const footerNavItems: NavItem[] = [
@@ -46,13 +50,13 @@ const footerNavItems: NavItem[] = [
                 <SidebarMenuItem>
                     <SidebarMenuButton size="lg" as-child>
                         <Link :href="dashboard()">
-                            <AppLogo />
+                        <AppLogo />
                         </Link>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
             </SidebarMenu>
         </SidebarHeader>
-
+        {{ route('chess.index') }}
         <SidebarContent>
             <NavMain :items="mainNavItems" />
         </SidebarContent>
